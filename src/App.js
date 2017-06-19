@@ -36,8 +36,8 @@ class myMaze extends Component{
     constructor(){
         super();
         this.state = {
-            mazeArray: this.wholeMaze,
-            lastBite: this.finalMazeBite
+            mazeArray: this.mazeArray,
+            lastBite: this.lastBite
         }
     }
     buildMaze = () => {
