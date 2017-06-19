@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import './MazeBite';
-import logo from './logo.svg';
 import './App.css';
-import'./Lengths';
-import './myMaze.js';
-//import {MazeBite} from './MazeBite.js';
-// require('node_modules');
-// let MazeBite = require("./MazeBite.js");
-// require("./MazeBite");
 class App extends Component {
   render() {
     return (
@@ -16,7 +8,6 @@ class App extends Component {
           <h1>Welcome to The Maze</h1>
         </div>
           <div>
-
               <SubmitForm>
                   <script type="text/javascript" src="myMaze.js" />
               </SubmitForm>
