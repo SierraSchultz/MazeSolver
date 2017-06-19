@@ -3,6 +3,7 @@ import './MazeBite';
 import logo from './logo.svg';
 import './App.css';
 import'./Lengths';
+import './myMaze.js';
 //import {MazeBite} from './MazeBite.js';
 // require('node_modules');
 // let MazeBite = require("./MazeBite.js");
@@ -12,13 +13,13 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to The Maze</h2>
+          <h1>Welcome to The Maze</h1>
         </div>
           <div>
-              <script type="text/javascript" src="Lengths.js" />
 
-              <SubmitForm />
+              <SubmitForm>
+                  <script type="text/javascript" src="myMaze.js" />
+              </SubmitForm>
           </div>
           <myMaze />
       </div>
@@ -53,9 +54,10 @@ class myMaze extends Component{
         let x = 0;
         let y = 0;
         let ctx = canvas.getContext('2d');
+        ctx.canvas.width = window.innerWidth;
+        ctx.canvas.height = window.innerHeight;
         for(let i = 0; i<this.mazeArray[0].length; i++){
             for( let j = 0; j<this.mazeArray.length; j++){
-    // type:  0 = unvisited open path, 1 = blocked path, 2 = start point, 3 = end point, 4 = visited open path, 5 = shortest path
                 if(this.mazeArray[j][i].type === 0 || this.mazeArray[j][i].type === 4){
                     ctx.fillStyle = "#ffffff";
                     ctx.fillRect((i+1)*10,(1+j)*10,10,10);
@@ -118,7 +120,7 @@ class SubmitForm extends Component {
                     </button>
                 </div>
                 <div>
-                    <canvas id="canvas" height={1000} width={2000}>
+                    <canvas id="canvas">
                         {this.buildMaze}
                     </canvas>
                 </div>
