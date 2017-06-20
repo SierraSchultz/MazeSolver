@@ -18,7 +18,8 @@ export default class MyMaze extends Component{
             for( let j = 0; j<this.mazeArray.length; j++){
                 switch (this.mazeArray[j][i].type){
                     case 0:
-                        ctx.fillStyle = "#000000"
+                    case 4:
+                        ctx.fillStyle = "#ffffff"
                         ctx.fillRect((i + 1) * 10, (1 + j) * 10, 10, 10)
                         break
                     case 1:
@@ -32,10 +33,6 @@ export default class MyMaze extends Component{
                     case 3:
                         ctx.fillStyle = "#456545"
                         ctx.fillRect((1 + i) * 10, (1 + j) * 10, 10, 10)
-                        break
-                    case 4:
-                        ctx.fillStyle = "#ffffff"
-                        ctx.fillRect((i + 1) * 10, (1 + j) * 10, 10, 10)
                         break
                     case 5:
                         ctx.fillStyle = "#650302"
