@@ -32,7 +32,8 @@ export default class SubmitForm extends Component {
         return (
             <div>
                 <div>
-                    <textarea onChange={this.textChanged}  >
+                    <textarea onChange={this.textChanged} cols={this.getLengths(this.state.value).rowLength+10}
+                              rows={this.getLengths(this.state.value).colLength} >
                         {this.state.value}
                     </textarea>
                 </div>
@@ -50,13 +51,21 @@ export default class SubmitForm extends Component {
         )
     }
     getLengths(text) {
-        let charArray = text.toString().split("")
-        let rowLength = 1;
-        while (charArray[rowLength] !== '\n') {
-            rowLength++;
-        }
-        let colLength = Math.ceil(text.length / rowLength)-1
 
+        let charArray
+        let rowLength = 1;
+        let colLength
+        if(text === null){
+            colLength = 1
+            rowLength =1
+        }
+        else {
+            charArray = text.toString().split("")
+            while (charArray[rowLength] !== '\n') {
+                rowLength++;
+            }
+            colLength = Math.ceil(text.length / rowLength) - 1
+        }
         return {
             colLength: colLength,
             rowLength: rowLength,
