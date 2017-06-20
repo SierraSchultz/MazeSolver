@@ -4,9 +4,8 @@
 import React, {Component} from 'react'
 import MyMaze from './MyMaze'
 import MazeBite from './MazeBite'
-import MakeMazeArray from './MakeMazeArray'
-//import TextareaAutosize from 'react-textarea-autosize'
-import TextArea from 'react-text-input'
+
+
 export default class SubmitForm extends Component {
     
     constructor() {
@@ -53,7 +52,7 @@ export default class SubmitForm extends Component {
     getLengths(text) {
 
         let charArray
-        let rowLength = 1;
+        let rowLength = 1
         let colLength
         if(text === null){
             colLength = 1
@@ -62,6 +61,7 @@ export default class SubmitForm extends Component {
         else {
             charArray = text.toString().split("")
             while (charArray[rowLength] !== '\n') {
+                console.log(rowLength)
                 rowLength++;
             }
             colLength = Math.ceil(text.length / rowLength) - 1
@@ -119,9 +119,7 @@ export default class SubmitForm extends Component {
         }
     }
     MazeSolverHelper(col, row, maze, bag, currentBite, rowLength, colLength) {
-        if ( col >= colLength || row >= rowLength) {
-        }
-        else{
+        if ( !(col >= colLength || row >= rowLength)) {
             if ((maze[col][row].type === 0 || maze[col][row].type === 3) && !maze[col][row].visited) {
                 bag.push(maze[col][row])
                 if(maze[col][row].type === 0)
@@ -171,3 +169,4 @@ export default class SubmitForm extends Component {
         }
     }
 }
+
